@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jesus Power Assembly International Inc.</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #4B0082; /* Deep Royal Purple */
+            --accent: #FFD700; /* Gold */
+            --accent-hover: #E6C200;
+            --text-dark: #2D2D2D;
+            --text-light: #666666;
+            --white: #FFFFFF;
+            --bg-light: #F8F8F8;
+            --nav-bg: #4B0082;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        /* --- Scrollbar --- */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3a0066;
+        }
+
+        /* --- Animations --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes red-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 0, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+        }
+
+        /* --- Header & Navbar --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            padding: 0;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+            border-bottom: 3px solid var(--accent);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--accent);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 900;
+        }
+
+        .logo i {
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--white);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent);
+            opacity: 1;
+        }
+
+        .btn-visit {
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-weight: 800;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            display: inline-block;
+            border: 1px solid var(--accent);
+        }
+
+        .btn-visit:hover {
+            background-color: var(--white);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle {
+            display: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 5rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            letter-spacing: -2px;
+            text-transform: none;
+            font-weight: 900;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 18px 40px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            transition: var(--transition);
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--white);
+            color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+
+        /* --- Welcome Message --- */
+        .section-welcome {
+            padding: 100px 20px;
+            background-color: var(--white);
+        }
+
+        .welcome-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .welcome-img {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 4px solid var(--accent);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .welcome-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .welcome-text h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .welcome-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.4rem;
+            color: var(--primary);
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+            margin-top: 2rem;
+        }
+
+        /* --- About --- */
+        .section-about {
+            padding: 100px 20px;
+            background-color: var(--bg-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .section-title .divider {
+            width: 100px;
+            height: 3px;
+            background: var(--accent);
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-title .divider::after {
+            content: '†';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-light);
+            padding: 0 10px;
+            color: var(--accent);
+            font-weight: 900;
+            font-size: 1.2rem;
+        }
+
+        .about-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .about-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            border-bottom: 3px solid var(--accent);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-card i {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        /* --- Leadership --- */
+        .section-leadership {
+            padding: 100px 20px;
+            background: var(--white);
+        }
+
+        .leader-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 100px;
+            align-items: center;
+        }
+
+        .leader-img {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .leader-img img {
+            width: 100%;
+            display: block;
+        }
+
+        .leader-info h3 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .leader-title {
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .ministry-highlights {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .ministry-highlights li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+
+        .ministry-highlights li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .family-banner {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 60px;
+        }
+
+        .family-banner h3 {
+            color: var(--accent);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .children-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .child-card {
+            background: var(--white);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border-left: 5px solid var(--primary);
+        }
+
+        .child-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .child-img {
+            height: 350px;
+            background-color: #eee;
+            overflow: hidden;
+        }
+
+        .child-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .child-content {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .child-content h4 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .badge-gold {
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            display: inline-block;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .twin-note {
+            text-align: center;
+            background: #fff8e1;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--primary);
+            border: 1px dashed var(--accent);
+        }
+
+        /* --- Service Times --- */
+        .section-services {
+            padding: 100px 20px;
+            background: var(--bg-light);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 3px solid var(--accent);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .service-card h4 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .service-time {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        /* --- Live Stream --- */
+        .section-live {
+            padding: 100px 20px;
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .live-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .video-box {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            background: #000;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
+
+        .video-box iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .live-badge {
+            background: #ff0000;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            animation: red-pulse 2s infinite;
+        }
+
+        .pulse-dot {
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            border-radius: 50%;
+            animation: pulse 1s infinite;
+        }
+
+        .prayer-request {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+
+        .prayer-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .prayer-form input {
+            flex: 1;
+            padding: 12px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .prayer-form button {
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            padding: 0 30px;
+            border-radius: 5px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* --- Messages --- */
+        .section-messages {
+            padding: 100px 20px;
+            background: var(--white);
+        }
+
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .tab {
+            padding: 10px 25px;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tab.active, .tab:hover {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .video-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .video-card:hover {
+            transform: scale(1.02);
+        }
+
+        .thumb {
+            position: relative;
+            height: 200px;
+            background: #eee;
+        }
+
+        .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .video-card:hover .play-overlay {
+            opacity: 1;
+        }
+
+        .play-overlay i {
+            color: var(--white);
+            font-size: 3rem;
+        }
+
+        .duration {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+            padding: 2px 8px;
+            font-size: 0.8rem;
+            border-radius: 3px;
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .video-meta {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .btn-watch {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* --- Ministries --- */
+        .section-ministries {
+            padding: 100px 20px;
+            background: var(--bg-light);
+        }
+
+        .ministry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .ministry-card {
+            background: var(--white);
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px;
+            transition: var(--transition);
+        }
+
+        .ministry-card:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .ministry-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        /* --- Branches --- */
+        .section-branches {
+            padding: 100px 20px;
+            background: var(--white);
+        }
+
+        .branch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .branch-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            border-left: 10px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .branch-card h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .branch-detail {
+            margin-bottom: 20px;
+        }
+
+        .branch-detail p {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .branch-detail i {
+            color: var(--accent);
+            margin-top: 5px;
+        }
+
+        .btn-directions {
+            background: var(--primary);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        /* --- Give --- */
+        .section-give {
+            padding: 100px 20px;
+            background: linear-gradient(rgba(75, 0, 130, 0.9), rgba(75, 0, 130, 0.9)), url('https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .give-content h2 {
+            color: var(--accent);
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .scripture {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        .btn-give {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 20px 40px;
+            font-size: 1.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 900;
+            display: inline-block;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: var(--transition);
+        }
+
+        .btn-give:hover {
+            background: var(--white);
+            transform: translateY(-5px);
+        }
+
+        /* --- Testimonials --- */
+        .section-testimonials {
+            padding: 100px 20px;
+            background: var(--white);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .stars {
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        /* --- Contact --- */
+        .section-contact {
+            padding: 100px 20px;
+            background: var(--bg-light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .btn-submit {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .map-box {
+            border-radius: 15px;
+            overflow: hidden;
+            height: 100%;
+            min-height: 400px;
+        }
+
+        /* --- Newsletter --- */
+        .newsletter {
+            background: var(--accent);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .newsletter-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .newsletter h3 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .newsletter-form button {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0 30px;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #111;
+            color: #999;
+            padding: 80px 20px 20px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col a {
+            color: #999;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid #222;
+            padding-top: 30px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* --- Floating Buttons --- */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+        }
+
+        .watch-live-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #ff0000;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 20px rgba(255,0,0,0.3);
+            z-index: 999;
+            transition: var(--transition);
+        }
+
+        .watch-live-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* --- Responsive fixes --- */
+        @media (max-width: 992px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .welcome-grid { grid-template-columns: 1fr; }
+            .leader-main { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .menu-toggle { display: block; }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--nav-bg);
+                padding: 20px;
+                text-align: center;
+                gap: 15px;
+            }
+            nav ul.active { display: flex; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header id="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-cross"></i>
+                JESUS POWER ASSEMBLY
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul id="nav-list">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#leadership">Leadership</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#live">Live</a></li>
+                    <li><a href="#messages">Messages</a></li>
+                    <li><a href="#branches">Branches</a></li>
+                    <li><a href="#give">Give</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" class="btn-visit">Plan Your Visit</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="reveal">Jesus Power Assembly International Inc.</h1>
+            <p class="reveal">A Place of Power, Healing & Transformation</p>
+            <div class="cta-group reveal">
+                <a href="#services" class="btn-primary">Join a Service</a>
+                <a href="#live" class="btn-secondary">Watch Live</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Message -->
+    <section class="section-welcome">
+        <div class="welcome-grid">
+            <div class="welcome-img reveal">
+                <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Archbishop David Jude Inegbenehi">
+            </div>
+            <div class="welcome-text reveal">
+                <h2>Welcome to Our Assembly</h2>
+                <p>Beloved, it is a joy to have you here. Jesus Power Assembly is not just a church; it is a spiritual home where lives are refined and destinies are birthed. We believe in the raw power of the Holy Spirit to transform the most ordinary life into an extraordinary testimony.</p>
+                <p>Whether you're joining us for the first time or looking for a place to grow in faith, there's a space for you here.</p>
+                <div class="quote">
+                    "At Jesus Power Assembly, we believe in the transforming power of Jesus Christ."
+                    <br>— <span style="font-size: 1rem; font-style: normal; font-weight: 700;">Archbishop David Jude Inegbenehi</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section-about" id="about">
+        <div class="container text-center">
+            <div class="section-title reveal">
+                <h2>Our Heart & Mission</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="about-cards">
+                <div class="about-card reveal">
+                    <i class="fas fa-history"></i>
+                    <h3>Our History</h3>
+                    <p>Founded on a mandate of power, the ministry has grown from a mustard seed into a global phenomenon, planting branches and touching thousands of lives through prophetic fire.</p>
+                </div>
+                <div class="about-card reveal">
+                    <i class="fas fa-eye"></i>
+                    <h3>Our Vision</h3>
+                    <p>To raise a generation of power-filled believers who dominate their environments through the knowledge of God's Word and the exercise of apostolic authority.</p>
+                </div>
+                <div class="about-card reveal">
+                    <i class="fas fa-heart"></i>
+                    <h3>Core Values</h3>
+                    <p>Faith, Power, Love, Transformation, Community. These are the pillars that uphold every department and ministry within our assembly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="section-leadership" id="leadership">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Our Spiritual Leadership</h2>
+                <div class="divider"></div>
+            </div>
+
+            <!-- Archbishop -->
+            <div class="leader-main reveal">
+                <div class="leader-img">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Archbishop David Jude Inegbenehi">
+                </div>
+                <div class="leader-info">
+                    <span class="leader-title">Founder & Senior Pastor</span>
+                    <h3>Archbishop David Jude Inegbenehi</h3>
+                    <p>Archbishop David Jude Inegbenehi is a man of profound spiritual insight and apostolic grace. With over three decades in ministry, he has become a leading voice in the charismatic movement, known for his unwavering commitment to the Word and the miraculous.</p>
+                    <ul class="ministry-highlights">
+                        <li>Founder of Jesus Power Assembly Int'l</li>
+                        <li>Global Evangelist and Prophetic Voice</li>
+                        <li>Author of several life-transforming books</li>
+                        <li>Spiritual father to hundreds of ministries</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- First Lady -->
+            <div class="leader-main reveal" style="grid-template-columns: 1.5fr 1fr;">
+                <div class="leader-info" style="text-align: right;">
+                    <span class="leader-title">Co-Pastor & First Lady</span>
+                    <h3>Reverend Mrs. Inegbenehi</h3>
+                    <p>Reverend Mrs. Inegbenehi serves alongside her husband with grace, wisdom, and a mother's heart. She is the pillar of the women's ministry and a devoted partner in the work of the Lord, especially gifted in counseling and spiritual nurture.</p>
+                </div>
+                <div class="leader-img">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Reverend Mrs. Inegbenehi">
+                </div>
+            </div>
+
+            <!-- Children -->
+            <div class="family-banner reveal">
+                <h3>A Legacy of Faith</h3>
+                <p>Archbishop & Reverend Mrs. Inegbenehi are blessed with four children, all of whom are ordained pastors wholly consecrated to the service of God.</p>
+            </div>
+
+            <div class="children-grid">
+                <!-- Priscillia -->
+                <div class="child-card reveal">
+                    <div class="child-img">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Pastor Priscillia Inegbenehi">
+                    </div>
+                    <div class="child-content">
+                        <h4>Pastor Priscillia Inegbenehi</h4>
+                        <p>Pastor Priscillia serves faithfully in the body of Christ, carrying the grace and anointing of her father's ministry with elegance and devotion.</p>
+                    </div>
+                </div>
+                <!-- Ehinomen -->
+                <div class="child-card reveal">
+                    <div class="child-img">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Pastor Ehinomen Inegbenehi">
+                    </div>
+                    <div class="child-content">
+                        <span class="badge-gold">Resident Pastor – Headquarters</span>
+                        <h4>Pastor Ehinomen Inegbenehi</h4>
+                        <p>Pastor Ehinomen faithfully oversees the headquarters church, shepherding the flock with wisdom and the fire of the Holy Spirit in the Archbishop's absence.</p>
+                    </div>
+                </div>
+                <!-- Prince -->
+                <div class="child-card reveal">
+                    <div class="child-img">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Pastor Prince Inegbenehi">
+                    </div>
+                    <div class="child-content">
+                        <span class="badge-gold">Resident Pastor – Branch</span>
+                        <h4>Pastor Prince Inegbenehi</h4>
+                        <p>Pastor Prince leads the Medical Store Room Road branch with zeal and apostolic fire, extending the power of Jesus Christ in Benin City.</p>
+                    </div>
+                </div>
+                <!-- Praise -->
+                <div class="child-card reveal">
+                    <div class="child-img">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Pastor Praise Inegbenehi">
+                    </div>
+                    <div class="child-content">
+                        <h4>Pastor Praise Inegbenehi</h4>
+                        <p>Pastor Praise serves in the ministry with a heart of worship and intercession, carrying a unique anointing that draws people into God's presence.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="twin-note reveal">
+                ✨ A Double Portion – Blessed with Twins in Ministry: Pastor Prince & Pastor Praise Inegbenehi
+            </div>
+            <p class="text-center mt-4 reveal" style="margin-top: 30px; font-weight: 700; color: var(--primary);">"A Family Wholly Consecrated to God's Service"</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section-services" id="services">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Service Schedule</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="service-grid">
+                <div class="service-card reveal">
+                    <i class="fas fa-sun fa-3x" style="color: var(--accent); margin-bottom: 20px;"></i>
+                    <h4>Sunday Worship</h4>
+                    <p class="service-time">9:00 AM & 11:00 AM</p>
+                    <p>Experience the power of corporate worship and the Word.</p>
+                </div>
+                <div class="service-card reveal">
+                    <i class="fas fa-book fa-3x" style="color: var(--accent); margin-bottom: 20px;"></i>
+                    <h4>Tuesday Bible Study</h4>
+                    <p class="service-time">10:00 AM</p>
+                    <p>Dig deep into the mysteries of the Kingdom.</p>
+                </div>
+                <div class="service-card reveal">
+                    <i class="fas fa-moon fa-3x" style="color: var(--accent); margin-bottom: 20px;"></i>
+                    <h4>Friday Night Vigil</h4>
+                    <p class="service-time">10:00 PM</p>
+                    <p>Wrestling in prayer for supernatural breakthroughs.</p>
+                </div>
+                <div class="service-card reveal">
+                    <i class="fas fa-calendar-star fa-3x" style="color: var(--accent); margin-bottom: 20px;"></i>
+                    <h4>Special Programs</h4>
+                    <p class="service-time">As Announced</p>
+                    <p>Keep an eye on our announcements for special events.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Stream Section -->
+    <section class="section-live" id="live">
+        <div class="live-container">
+            <div class="section-title reveal">
+                <h2 style="color: var(--white);">Watch Us Live</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="live-badge reveal">
+                <div class="pulse-dot"></div>
+                LIVE
+            </div>
+            
+            <div class="video-box reveal">
+                <iframe src="https://www.youtube.com/embed/live_stream?channel=UCxxxxxxxxxxxxxxx" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div class="reveal">
+                <h3>Sunday Worship Service – Jesus Power Assembly Int'l</h3>
+                <p>Every Sunday & Tuesday | Join thousands across the globe in worship.</p>
+                
+                <div class="prayer-request">
+                    <h4>Send a Prayer Request During Service</h4>
+                    <form class="prayer-form">
+                        <input type="text" placeholder="Your Name">
+                        <input type="text" placeholder="Your Prayer Request">
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+                <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">Subscribe to our YouTube channel to get notified when we are live.</p>
+                <div class="social-links" style="justify-content: center; margin-top: 20px;">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Messages Section -->
+    <section class="section-messages" id="messages">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Watch Past Messages</h2>
+                <p>Be blessed by the Word of God anytime, anywhere</p>
+                <div class="divider"></div>
+            </div>
+
+            <div class="filter-tabs reveal">
+                <div class="tab active">All</div>
+                <div class="tab">Sunday Services</div>
+                <div class="tab">Bible Studies</div>
+                <div class="tab">Vigils</div>
+                <div class="tab">Special Programs</div>
+            </div>
+
+            <div class="video-grid">
+                <!-- Card 1 -->
+                <div class="video-card reveal">
+                    <div class="thumb">
+                        <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Video thumb">
+                        <div class="play-overlay"><i class="fas fa-play-circle"></i></div>
+                        <span class="duration">1:12:34</span>
+                    </div>
+                    <div class="video-info">
+                        <h4>The Power of Faith</h4>
+                        <p class="video-meta">Archbishop David Inegbenehi • Mar 2024</p>
+                        <a href="#" class="btn-watch">Watch Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="video-card reveal">
+                    <div class="thumb">
+                        <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Video thumb">
+                        <div class="play-overlay"><i class="fas fa-play-circle"></i></div>
+                        <span class="duration">0:58:12</span>
+                    </div>
+                    <div class="video-info">
+                        <h4>Walking in Wisdom</h4>
+                        <p class="video-meta">Pastor Ehinomen Inegbenehi • Feb 2024</p>
+                        <a href="#" class="btn-watch">Watch Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="video-card reveal">
+                    <div class="thumb">
+                        <img src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Video thumb">
+                        <div class="play-overlay"><i class="fas fa-play-circle"></i></div>
+                        <span class="duration">1:05:45</span>
+                    </div>
+                    <div class="video-info">
+                        <h4>Grace for the Journey</h4>
+                        <p class="video-meta">Pastor Priscillia Inegbenehi • Jan 2024</p>
+                        <a href="#" class="btn-watch">Watch Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- More potential cards... -->
+            </div>
+            <div class="text-center" style="margin-top: 50px;">
+                <a href="#" class="btn-visit" style="padding: 15px 40px; font-size: 1.1rem;">Load More Messages</a>
+                <div style="margin-top: 20px;">
+                    <a href="#" style="color: #ff0000; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 10px;">
+                        <i class="fab fa-youtube"></i> Subscribe to YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ministries -->
+    <section class="section-ministries">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Our Departments</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="ministry-grid">
+                <div class="ministry-card reveal">
+                    <i class="fas fa-child"></i>
+                    <h4>Children</h4>
+                </div>
+                <div class="ministry-card reveal">
+                    <i class="fas fa-users"></i>
+                    <h4>Youths</h4>
+                </div>
+                <div class="ministry-card reveal">
+                    <i class="fas fa-user-female"></i>
+                    <h4>Women</h4>
+                </div>
+                <div class="ministry-card reveal">
+                    <i class="fas fa-user-tie"></i>
+                    <h4>Men</h4>
+                </div>
+                <div class="ministry-card reveal">
+                    <i class="fas fa-pray"></i>
+                    <h4>Prayer</h4>
+                </div>
+                <div class="ministry-card reveal">
+                    <i class="fas fa-music"></i>
+                    <h4>Music</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Branches Section -->
+    <section class="section-branches" id="branches">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Our Global Branches</h2>
+                <p>Spreading the Gospel Across Nations</p>
+                <div class="divider"></div>
+            </div>
+            <div class="branch-grid">
+                <!-- Branch 1 -->
+                <div class="branch-card reveal">
+                    <h3>Headquarters</h3>
+                    <div class="branch-detail">
+                        <p><i class="fas fa-map-marker-alt"></i> KM.11, Benin-Lagos Expressway, Uselu, Benin City, Edo State</p>
+                        <p><i class="fas fa-user-shield"></i> Resident Pastor: Ehinomen Inegbenehi</p>
+                        <p><i class="fas fa-phone"></i> 0706 055 1908</p>
+                    </div>
+                    <a href="https://maps.google.com/?q=Jesus+Power+Assembly+KM.11+Benin" target="_blank" class="btn-directions">Get Directions</a>
+                </div>
+                <!-- Branch 2 -->
+                <div class="branch-card reveal">
+                    <h3>Medical Store Branch</h3>
+                    <div class="branch-detail">
+                        <p><i class="fas fa-map-marker-alt"></i> Medical Store Room Road, Benin City, Edo State</p>
+                        <p><i class="fas fa-user-shield"></i> Resident Pastor: Prince Inegbenehi</p>
+                    </div>
+                    <a href="#" class="btn-directions">Get Directions</a>
+                </div>
+                <!-- Branch 3 -->
+                <div class="branch-card reveal">
+                    <h3>Ikpoba Hill Branch</h3>
+                    <div class="branch-detail">
+                        <p><i class="fas fa-map-marker-alt"></i> Ikpoba Hill, Benin City, Edo State</p>
+                    </div>
+                    <a href="#" class="btn-directions">Get Directions</a>
+                </div>
+                <!-- Branch 4 -->
+                <div class="branch-card reveal">
+                    <h3>Lagos Branch</h3>
+                    <div class="branch-detail">
+                        <p><i class="fas fa-map-marker-alt"></i> Lagos State, Nigeria</p>
+                    </div>
+                    <a href="#" class="btn-directions">Get Directions</a>
+                </div>
+            </div>
+            <p class="text-center" style="margin-top: 40px; color: var(--text-light);">Coming to your city soon – Contact us to plant a branch near you.</p>
+        </div>
+    </section>
+
+    <!-- Give Section -->
+    <section class="section-give" id="give">
+        <div class="give-content reveal">
+            <h2>Give / Tithe Online</h2>
+            <div class="scripture">
+                "Bring the whole tithe into the storehouse, that there may be food in my house..." <br>— Malachi 3:10
+            </div>
+            <a href="#" class="btn-give">GIVE NOW</a>
+            <div style="margin-top: 40px;">
+                <p><strong>Bank Details:</strong> Jesus Power Assembly Int'l | First Bank: 1234567890</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section-testimonials">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>God at Work</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p>"I came to this church broken, but through the prophetic words of the Archbishop, my life has received a total turnaround."</p>
+                    <strong>— Sister Sarah O.</strong>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p>"The fire for prayer in this assembly is contagious. My spiritual life has never been better."</p>
+                    <strong>— Brother Emmanuel E.</strong>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p>"Healing is real! I received my miracle during the Friday Night Vigil."</p>
+                    <strong>— Pastor Williams</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-contact" id="contact">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Contact Us</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-form reveal">
+                    <form>
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" placeholder="070 000 0000">
+                        </div>
+                        <div class="form-group">
+                            <label>Your Message</label>
+                            <textarea rows="5" placeholder="How can we help you?"></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">SEND MESSAGE</button>
+                    </form>
+                </div>
+                <div class="map-box reveal">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.253457597548!2d5.589886475730418!3d6.361247024982638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1040d3a5e8c8266d%3A0x6d8b3c6755490c0b!2sJesus+Power+Assembly+Int'l!5e0!3m2!1sen!2sng!4v1700000000000!5m2!1sen!2sng" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <div class="newsletter">
+        <div class="newsletter-container reveal">
+            <h3>Join Our Newsletter</h3>
+            <p>Get weekly devotionals and ministry updates.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email">
+                <button type="submit">SUBSCRIBE</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="#" class="logo" style="margin-bottom: 20px;">
+                    <i class="fas fa-cross"></i>
+                    JPA INT'L
+                </a>
+                <p>A global ministry dedicated to raising a generation of power-filled believers across the nations.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="#leadership">Leadership</a></li>
+                    <li><a href="#live">Live Service</a></li>
+                    <li><a href="#messages">Sermons</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Branches</h4>
+                <ul>
+                    <li><a href="#">Headquarters, Benin</a></li>
+                    <li><a href="#">Medical Store, Benin</a></li>
+                    <li><a href="#">Ikpoba Hill, Benin</a></li>
+                    <li><a href="#">Lagos Branch</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-map-marker-alt"></i> KM.11, Benin-Lagos Express Way, Benin City, Nigeria</p>
+                <p><i class="fas fa-phone"></i> 0706 055 1908</p>
+                <p><i class="fas fa-envelope"></i> info@jesuspower.org</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Jesus Power Assembly International Inc. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <a href="#header" class="back-to-top" id="backTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    <a href="#live" class="watch-live-float">
+        <div class="pulse-dot"></div>
+        WATCH LIVE
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+        
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+
+        // Sticky Header & Back to Top
+        const header = document.getElementById('header');
+        const backTop = document.getElementById('backTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.style.padding = '0.5rem 0';
+                backTop.classList.add('show');
+            } else {
+                header.style.padding = '1rem 0';
+                backTop.classList.remove('show');
+            }
+        });
+
+        // Reveal Animations on Scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Smooth Scrolling for Nav Links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    navList.classList.remove('active');
+                }
+            });
+        });
+
+        // Tab Filtering (Mock Logic)
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelector('.tab.active').classList.remove('active');
+                this.classList.add('active');
+                // In a real app, you'd filter the video cards here
+            });
+        });
+
+        // Form Submit Mock
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you! Your submission has been received by JPA Ministry.');
+                form.reset();
+            });
+        });
+    </script>
+</body>
+</html>
