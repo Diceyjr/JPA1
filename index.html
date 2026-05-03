@@ -1358,21 +1358,42 @@
                 <h3>Sunday Worship Service – Jesus Power Assembly Int'l</h3>
                 <p>Every Sunday | Join thousands across the globe in worship.</p>
                 
-                <div class="prayer-request">
-                    <h4>Send a Prayer Request During Service</h4>
-                    <form class="prayer-form">
-                        <input type="text" placeholder="Your Name">
-                        <input type="text" placeholder="Your Prayer Request">
-                        <button type="submit">Submit</button>
-                    </form>
-                </div>
-                <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">Subscribe to our YouTube channel to get notified when we are live.</p>
-                <div class="social-links" style="justify-content: center; margin-top: 20px;">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
+              <div class="prayer-request">
+    <h4>Send a Prayer Request During Service</h4>
+
+    <!--  CONNECT THIS TO FORMSPREE -->
+    <form class="prayer-form" action="https://formspree.io/f/xvzlkgyd" method="POST">
+        
+        <input type="text" name="name" placeholder="Your Name" required>
+        
+        <input type="text" name="prayer" placeholder="Your Prayer Request" required>
+        
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">
+    Subscribe to our YouTube channel to get notified when we are live.
+</p>
+
+<div class="social-links" style="justify-content: center; margin-top: 20px;">
+    
+    <a href="https://facebook.com/YOUR_PAGE_LINK" target="_blank">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+    <a href="https://wa.me/234XXXXXXXXXX" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <a href="https://twitter.com/YOUR_HANDLE" target="_blank">
+        <i class="fab fa-twitter"></i>
+    </a>
+
+    <a href="https://youtube.com/YOUR_CHANNEL_LINK" target="_blank">
+        <i class="fab fa-youtube"></i>
+    </a>
+</div>            
         </div>
     </section>
 
